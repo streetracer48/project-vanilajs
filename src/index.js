@@ -21,16 +21,20 @@ window.onload = function() {
 function createNewTask(parent, task) {
 
   let col = create({'class': 'col-sm-3'})
-  let singleTask = create({'class':'single-task'})
+  let singleTask = create({'class':'single-task d-flex'})
   let singleTaskP =  create('p')
+  let span = create('span', {'class': 'ml-auto'})
+
+  span.innerHTML = '<i class="fas fa-times-circle"></i>'
 
   singleTaskP.innerHTML = task
 
   singleTask.appendChild(singleTaskP)
+  singleTask.appendChild(span)
 
 col.appendChild(singleTask)
-
 parent.appendChild(col)
+
 
 
 }
