@@ -13,6 +13,7 @@ background:white
     margin-bottom: 10px;
 }
 
+
 .task-control-panel {
     width: 100%;
     min-height: 40px;
@@ -22,7 +23,11 @@ background:white
     bottom: 0;
 
 }
-
+.color-circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
 
 .inner-textarea {
     resize: none;

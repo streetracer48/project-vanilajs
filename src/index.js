@@ -62,9 +62,30 @@ singleTask.onmouseleave = function () {
   function createTaskController(parent) {
    let controlPanel = create ({'class': 'task-control-panel'})
 
+   let colorPallete = createColorPallete()
+controlPanel.appendChild(colorPallete)
    return controlPanel
 
   }
+
+function createColorPallete() {
+const colors =['palegreen','skyblue','powderblue', 'salmon', 'grey', 'red']
+let colorDiv = create({'class': 'd-flex'})
+
+colors.forEach(color => {
+  let div = ({'class': 'color-circle'})
+  div.style.background=color
+ colorDiv.appendChild(div)
+})
+
+
+return colorDiv
+
+
+
+
+}
+
 
 
 
