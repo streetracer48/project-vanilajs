@@ -33,21 +33,25 @@ function createNewTask(parent, task) {
   span.innerHTML = '<i class="fas fa-times-circle"></i>'
   singleTaskP.innerHTML = task
   singleTask.appendChild(singleTaskP)
-  singleTask.appendChild(span)
-
-
-
   span.addEventListener('click', function() {
  parent.removeChild(col)
 
   })
+  singleTask.appendChild(span)
+
   let taskController = createTaskController(singleTask)
-  singleTask.appendChild(taskController)
+
+singleTask.appendChild(taskController)
+
+
 
   col.appendChild(singleTask)
   parent.appendChild(col)
   function createTaskController(parent) {
    let controlPanel = create ({'class': 'task-control-panel'})
+
+   return controlPanel
+
   }
 
 
