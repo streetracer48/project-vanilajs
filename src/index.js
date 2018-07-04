@@ -19,11 +19,25 @@ window.onload = function() {
 }
 
 function createNewTask(parent, task) {
-console.log(task)
+
+  let col = create({'class': 'col-sm-3'})
+  let singleTask = create({'class':'single-task'})
+  let singleTaskP =  create('p')
+
+  singleTaskP.innerHTML = task
+
+  singleTask.appendChild(singleTaskP)
+
+col.appendChild(singleTask)
+
+parent.appendChild(col)
+
+
 }
 
 
-AudioTrackListwindow.create = function () {
+
+window.create = function () {
 
   if (arguments.length === 0) {
       return document.createElement('div');
