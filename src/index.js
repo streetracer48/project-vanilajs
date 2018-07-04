@@ -27,7 +27,7 @@ function createNewTask(parent, task) {
   let singleTask = create({'class':'single-task d-flex'})
   let singleTaskP =  create('p')
   let span = create('span', {'class': 'ml-auto'})
-
+   span.style.cursor = 'pointer'
 
 
   span.innerHTML = '<i class="fas fa-times-circle"></i>'
@@ -40,8 +40,20 @@ function createNewTask(parent, task) {
   singleTask.appendChild(span)
 
   let taskController = createTaskController(singleTask)
-
+  taskController.style.visibility ='hidden'
 singleTask.appendChild(taskController)
+
+singleTask.onmouseenter = function () {
+ taskController.style.visibility ='visible'
+ taskController.style.cursor ='pointer'
+
+}
+
+singleTask.onmouseleave = function () {
+  taskController.style.visibility ='hidden'
+
+
+ }
 
 
 
