@@ -16,6 +16,9 @@ window.onload = function() {
       }
 
     })
+
+
+
 }
 
 function createNewTask(parent, task) {
@@ -25,17 +28,27 @@ function createNewTask(parent, task) {
   let singleTaskP =  create('p')
   let span = create('span', {'class': 'ml-auto'})
 
+
+
   span.innerHTML = '<i class="fas fa-times-circle"></i>'
   singleTaskP.innerHTML = task
   singleTask.appendChild(singleTaskP)
   singleTask.appendChild(span)
-  col.appendChild(singleTask)
-  parent.appendChild(col)
+
+
 
   span.addEventListener('click', function() {
  parent.removeChild(col)
 
   })
+  let taskController = createTaskController(singleTask)
+  singleTask.appendChild(taskController)
+
+  col.appendChild(singleTask)
+  parent.appendChild(col)
+  function createTaskController(parent) {
+   let controlPanel = create ({'class': 'task-control-panel'})
+  }
 
 
 
@@ -69,22 +82,3 @@ window.create = function () {
   return element;
 }
 
-HTMLElement.prototype.attrs = function (attr) {
-  for (var i in attr) {
-      this.setAttribute(i, attr[i]);
-  }
-  return this;
-}
-
-// Add Event Liseners
-HTMLElement.prototype.events = function (event) {
-  for (var e in event) {
-      this.addEventListener(e, event[e]);
-  }
-  return this;
-}
-
-// Find Parent Nodes
-HTMLElement.prototype.parent = function () {
-  return this.parentElement;
-}
