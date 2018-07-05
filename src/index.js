@@ -60,16 +60,36 @@ singleTask.onmouseleave = function () {
   col.appendChild(singleTask)
   parent.appendChild(col)
   function createTaskController(parent) {
-   let controlPanel = create ({'class': 'task-control-panel'})
-
+   let controlPanel = create ({'class': 'task-control-panel d-flex align-items-center'})
    let colorPallete = createColorPallete(parent)
-controlPanel.appendChild(colorPallete)
+   controlPanel.appendChild(colorPallete)
+   let editBtnController= createeditBtnController(parent)
+  controlPanel.appendChild(editBtnController)
    return controlPanel
 
   }
 
+  function createeditBtnController(parent){
+      let span= create('span', {'class':'ml-auto'})
+      span.innerHTML= '<i class="fas fa-edit"></i>'
+      span.style.cursor = 'pointer'
+      span.style.color = 'white'
+      span.addEventListener('click', function() {
+          let p = parent.querySelector('p')
+          let  textArea = create('textarea', {'class': 'inner-textarea'})
+          textArea.style.width = parent.offsetWidth + 'px'
+          textArea.style.height = parent.offsetHeight + 'px'
+          textArea.innerHTML = p.innerHTML
+ parent.appendChild(textArea)
+
+
+      })
+
+      return span
+  }
+
 function createColorPallete(parent) {
-const colors =['palegreen','skyblue','powderblue', 'salmon', 'grey', 'red']
+const colors =['palegreen','skyblue','powderblue', 'salmon', 'grey', 'red','white']
 let colorDiv = create({'class': 'd-flex'})
 
 colors.forEach(color => {
