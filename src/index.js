@@ -80,8 +80,23 @@ singleTask.onmouseleave = function () {
           textArea.style.width = parent.offsetWidth + 'px'
           textArea.style.height = parent.offsetHeight + 'px'
           textArea.innerHTML = p.innerHTML
- parent.appendChild(textArea)
+ textArea.addEventListener('keypress', function(event) {
+     if(event.keyCode === 13) {
 
+         event.stopPropagation()
+         if(this.value) {
+             p.innerHTML = this.value
+             parent.removeChild(this)
+         }
+
+         else {
+             console.log('please put some new word')
+         }
+     }
+
+ })
+
+        parent.appendChild(textArea)
 
       })
 
